@@ -1,0 +1,6 @@
+name: dslink_markov
+description: Markov Chain DSLink
+dependencies:
+  dslink:
+    git: https://github.com/IOT-DSA/sdk-dslink-dart.git
+
