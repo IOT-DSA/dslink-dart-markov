@@ -299,7 +299,7 @@ class MarkovChain {
       previousWord = currentWord;
     }
 
-    while (replyString == null || replyString.isEmpty) {
+    while (replyString != null && replyString.isEmpty) {
       replyString = sentence.isEmpty ? null : sentence.removeFirst();
     }
 
