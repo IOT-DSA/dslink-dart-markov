@@ -303,21 +303,21 @@ class MarkovChain {
       replyString = sentence.isEmpty ? null : sentence.removeFirst();
     }
 
-    if (replyString.isNotEmpty) {
+    if (replyString != null && replyString.isNotEmpty) {
       replyString = replyString.substring(0, 1).toUpperCase() + replyString.substring(1);
     }
 
-    if (replyString.toLowerCase() == name.toLowerCase() && sender.isNotEmpty) {
+    if (replyString != null && replyString.toLowerCase() == name.toLowerCase() && sender.isNotEmpty) {
       replyString = sender;
     }
 
     for (String replyWord in sentence) {
       if (replyWord.isNotEmpty) {
-        replyString += " " + replyWord;
+        replyString = (replyString == null ? "" : replyString) + " " + replyWord;
       }
     }
 
-    return allSentences + replyString;
+    return allSentences + replyString == null ? "" : replyString;
   }
 
   String randomSentence() {
