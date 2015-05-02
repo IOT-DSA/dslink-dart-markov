@@ -317,7 +317,7 @@ class MarkovChain {
       }
     }
 
-    return allSentences + replyString == null ? "" : replyString;
+    return allSentences + (replyString == null ? "" : replyString);
   }
 
   String randomSentence() {
