@@ -42,11 +42,25 @@ main(List<String> args) async {
             "type": "string"
           }
         ]
+      },
+      "Random_Sentence": {
+        r"$is": "randomSentence",
+        r"$name": "Random Sentence",
+        r"$invokable": "read",
+        r"$result": "values",
+        r"$params": [],
+        r"$columns": [
+          {
+            "name": "sentence",
+            "type": "string"
+          }
+        ]
       }
     },
     profiles: {
       "add": (String path) => new AddNode(path),
-      "respond": (String path) => new RespondNode(path)
+      "respond": (String path) => new RespondNode(path),
+      "randomSentence": (String path) => new RandomSentenceNode(path)
     }
   );
 
@@ -79,8 +93,23 @@ class RespondNode extends SimpleNode {
 
   @override
   onInvoke(Map<String, dynamic> params) {
+    if (params["input"] == null) return {
+      "response": null
+    };
+
     return {
       "response": markov.reply(params["input"], "DSA", "MarkovLink")
+    };
+  }
+}
+
+class RandomSentenceNode extends SimpleNode {
+  RandomSentenceNode(String path) : super(path);
+
+  @override
+  onInvoke(Map<String, dynamic> params) {
+    return {
+      "sentence": markov.randomSentence()
     };
   }
 }
