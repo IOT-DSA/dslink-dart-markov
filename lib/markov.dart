@@ -360,7 +360,7 @@ class MarkovChain {
       addLine(line);
     });
     stopwatch.stop();
-    print("Loaded Lines in ${stopwatch.elapsedMicroseconds} milliseconds");
+    print("Loaded Lines in ${stopwatch.elapsedMilliseconds} milliseconds");
   }
 
   void save() {
@@ -371,7 +371,7 @@ class MarkovChain {
     file.writeAsStringSync(globalLines.join("\n"));
 
     stopwatch.stop();
-    print("Saved Lines in ${stopwatch.elapsedMicroseconds} milliseconds");
+    print("Saved Lines in ${stopwatch.elapsedMilliseconds} milliseconds");
   }
 
   List<String> splitMultiple(String input, List<String> by) {

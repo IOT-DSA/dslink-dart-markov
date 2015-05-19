@@ -12,6 +12,6 @@ out/
 *.iml
 .c9*
 .dslink.key
-dslink.json
 nodes.json
 lines.txt
+log.txt
