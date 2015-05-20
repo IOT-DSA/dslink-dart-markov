@@ -1,5 +1,5 @@
 {
-  "name": "markov",
+  "name": "dslink-dart-markov",
   "version": "1.0.0",
   "description": "Markov DSLink",
   "main": "bin/run.dart",
